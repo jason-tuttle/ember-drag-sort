@@ -238,7 +238,7 @@ test('customize internal dragSortItem wrapper', withChai(async function (expect)
           <div class="handle2">handle</div>
         </div>
         <div>
-          {{item.name}}
+          {{item.data.name}}
         </div>
       {{/item.Component}}
     {{/drag-sort-list}}

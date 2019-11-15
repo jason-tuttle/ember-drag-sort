@@ -1,6 +1,8 @@
 {{#each items as |item index|}}
   {{#if yieldDragSortItemComponent}}
     {{yield (hash 
+      data=item
+      index=index
       Component=(component 'drag-sort-item'
         item=item
         index=index
