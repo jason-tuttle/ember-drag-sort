@@ -315,3 +315,21 @@
     dragEndAction = (action 'dragEnd')
   }}
 </div>
+
+
+<div class="list-group-wrapper">
+  <h2>HERE</h2>
+
+  {{#drag-sort-list
+    items         = items11
+    tagName       = 'table'
+    group         = 'table'
+    dragEndAction = (action 'dragEnd')
+    yieldDragSortItemComponent = true
+    as |item|
+  }}
+    {{#item.Component}}
+      Hello, {{item.data}}!
+    {{/item.Component}}
+  {{/drag-sort-list}}
+</div>
