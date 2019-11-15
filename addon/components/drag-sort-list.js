@@ -28,6 +28,7 @@ export default Component.extend({
 
   dragEndAction                  : undefined,
   determineForeignPositionAction : undefined,
+  yieldDragSortItemComponent     : false,
 
 
 
