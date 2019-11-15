@@ -1,16 +1,33 @@
 {{#each items as |item index|}}
-  {{#drag-sort-item
-    item                           = item
-    index                          = index
-    items                          = items
-    group                          = group
-    handle                         = handle
-    class                          = childClass
-    tagName                        = childTagName
-    draggingEnabled                = draggingEnabled
-    dragEndAction                  = dragEndAction
-    determineForeignPositionAction = determineForeignPositionAction
-  }}
-    {{yield item index}}
-  {{/drag-sort-item}}
+  {{#if yieldDragSortItemComponent}}
+    {{yield (hash 
+      Component=(component 'drag-sort-item'
+        item=item
+        index=index
+        items=items
+        group=group
+        handle=handle
+        class=childClass
+        tagName=childTagName
+        draggingEnabled=draggingEnabled
+        dragEndAction=dragEndAction
+        determineForeignPositionAction=determineForeignPositionAction
+      )
+    )}}
+  {{else}}
+    {{#drag-sort-item
+      item                           = item
+      index                          = index
+      items                          = items
+      group                          = group
+      handle                         = handle
+      class                          = childClass
+      tagName                        = childTagName
+      draggingEnabled                = draggingEnabled
+      dragEndAction                  = dragEndAction
+      determineForeignPositionAction = determineForeignPositionAction
+    }}
+      {{yield item index}}
+    {{/drag-sort-item}}
+  {{/if}}
 {{/each}}
